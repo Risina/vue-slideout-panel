@@ -91,7 +91,7 @@ const vm = {
       }, 300); //NOTE: need to delay removing here to allow CSS animation on .slideout to finish
     },
     onShowSlideOutPanel(panel) {
-      const existingPanel = this.panels.filter(p => p.id === panel.id)[0];
+      const existingPanel = this.panels[0];
 
       if (existingPanel) {
         existingPanel.props = panel.props;
@@ -99,7 +99,7 @@ const vm = {
       }
 
       panel.styles = {
-        'z-index': this.panels.length + Z_INDEX_BASE
+        'z-index': Z_INDEX_BASE
       };
 
       if (panel.openOn === 'top' || panel.openOn === 'bottom') {
@@ -183,7 +183,9 @@ const vm = {
 
         try {
           sheet.parentNode.removeChild(stylesheet);
-        } catch (err) {}
+        } catch (err) {
+          console.log(err);
+        }
       }
     },
     addBodyClass() {
