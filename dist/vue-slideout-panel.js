@@ -14417,7 +14417,7 @@ function showPanel(panelOptions, existingId) {
   var promise = new _promisePolyfill2.default(function (resolve) {
     _eventBus2.default.$emit('showSlideOutPanel', panelOptions);
 
-    _eventBus2.default.$once('hideSlideOutPanel-' + panelOptions.id, function (payload) {
+    _eventBus2.default.$on('hideSlideOutPanel-' + panelOptions.id, function (payload) {
       return resolve(payload.data);
     });
   });
