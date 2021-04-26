@@ -195,7 +195,7 @@ const vm = {
       domUtils.removeClass(document.body, 'slideout-panel-open');
     },
     onBgClicked() {
-      const currentPanel = this.panels[this.panels.length - 1];
+      const currentPanel = this.panels[0];
 
       if (!currentPanel || currentPanel.disableBgClick) {
         return;
