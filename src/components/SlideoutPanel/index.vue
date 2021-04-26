@@ -94,7 +94,10 @@ const vm = {
       const existingPanel = this.panels[0];
 
       if (existingPanel) {
-        existingPanel.props = panel.props;
+        existingPanel.props = {
+          panelId: existingPanel.id,
+          ...panel.props
+        };
         panel = existingPanel;
       }
 
@@ -195,7 +198,7 @@ const vm = {
       domUtils.removeClass(document.body, 'slideout-panel-open');
     },
     onBgClicked() {
-      const currentPanel = this.panels[0];
+      const currentPanel = this.panels[this.panels.length - 1];
 
       if (!currentPanel || currentPanel.disableBgClick) {
         return;
