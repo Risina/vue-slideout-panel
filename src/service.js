@@ -53,7 +53,7 @@ function showPanel(panelOptions, existingId) {
   const promise = new Promise(resolve => {
     eventBus.$emit('showSlideOutPanel', panelOptions);
 
-    eventBus.$once(`hideSlideOutPanel-${panelOptions.id}`, payload => {
+    eventBus.$emit(`hideSlideOutPanel-${panelOptions.id}`, payload => {
       return resolve(payload.data);
     });
   });
