@@ -1228,7 +1228,7 @@ var vm = {
     closeCurrentPanel: function closeCurrentPanel(data) {
       if (!this.panels || !this.panels.length) return;
 
-      var currentPanel = this.panels[this.panels.length - 1];
+      var currentPanel = this.panels[0];
 
       this.closePanel(currentPanel, data);
     },
@@ -1361,7 +1361,7 @@ var vm = {
       _domUtils2.default.removeClass(document.body, 'slideout-panel-open');
     },
     onBgClicked: function onBgClicked() {
-      var currentPanel = this.panels[0];
+      var currentPanel = this.panels[this.panels.length - 1];
 
       if (!currentPanel || currentPanel.disableBgClick) {
         return;
