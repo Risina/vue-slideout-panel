@@ -1228,7 +1228,7 @@ var vm = {
     closeCurrentPanel: function closeCurrentPanel(data) {
       if (!this.panels || !this.panels.length) return;
 
-      var currentPanel = this.panels[0];
+      var currentPanel = this.panels[this.panels.length - 1];
 
       this.closePanel(currentPanel, data);
     },
@@ -14407,7 +14407,7 @@ function showPanel(panelOptions, existingId) {
   if (!panelOptions) throw new Error('panelOptions is required');
   if (!panelOptions.component) throw new Error('panelOptions.component is required');
 
-  var id = existingId || _utils2.default.generateGuid();
+  var id = 'cc65cce2-9223-4a6d-9d54-bd1c31e6ad2d';
 
   panelOptions = (0, _assign2.default)({}, PANEL_DEFAULTS, panelOptions);
 
