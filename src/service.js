@@ -43,7 +43,7 @@ function showPanel(panelOptions, existingId) {
   if (!panelOptions) throw new Error('panelOptions is required');
   if (!panelOptions.component) throw new Error('panelOptions.component is required');
 
-  const id = existingId || utils.generateGuid();
+  const id = 'cc65cce2-9223-4a6d-9d54-bd1c31e6ad2d';
 
   panelOptions = Object.assign({}, PANEL_DEFAULTS, panelOptions);
 
@@ -53,7 +53,7 @@ function showPanel(panelOptions, existingId) {
   const promise = new Promise(resolve => {
     eventBus.$emit('showSlideOutPanel', panelOptions);
 
-    eventBus.$emit(`hideSlideOutPanel-${panelOptions.id}`, payload => {
+    eventBus.$on(`hideSlideOutPanel-${panelOptions.id}`, payload => {
       return resolve(payload.data);
     });
   });
