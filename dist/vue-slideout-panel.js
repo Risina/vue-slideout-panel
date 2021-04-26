@@ -1361,7 +1361,7 @@ var vm = {
       _domUtils2.default.removeClass(document.body, 'slideout-panel-open');
     },
     onBgClicked: function onBgClicked() {
-      var currentPanel = this.panels[this.panels.length - 1];
+      var currentPanel = this.panels[0];
 
       if (!currentPanel || currentPanel.disableBgClick) {
         return;
@@ -14417,7 +14417,7 @@ function showPanel(panelOptions, existingId) {
   var promise = new _promisePolyfill2.default(function (resolve) {
     _eventBus2.default.$emit('showSlideOutPanel', panelOptions);
 
-    _eventBus2.default.$emit('hideSlideOutPanel-' + panelOptions.id, function (payload) {
+    _eventBus2.default.$once('hideSlideOutPanel-' + panelOptions.id, function (payload) {
       return resolve(payload.data);
     });
   });
